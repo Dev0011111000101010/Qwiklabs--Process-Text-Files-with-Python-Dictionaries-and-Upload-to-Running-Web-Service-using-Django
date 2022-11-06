@@ -20,7 +20,7 @@ print('# QA: Result: If everything is correct, it should return a list of TXT fe
 print(os.listdir(feedback_txt_files_folder_path))
 print('----------------------')
 
-def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path)
+def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path):
     """1. Reading the contents of TXT files in a folder 'feedback_txt_files_folder_path'
        2. Convert content to dictionary using the correct names to upload to the site correctly"""
 
