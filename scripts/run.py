@@ -33,6 +33,10 @@ def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path):
     print(os.listdir(feedback_txt_files_folder_path))
     print('----------------------')
 
+    txt_files_list = os.listdir(feedback_txt_files_folder_path)
+    for file in txt_files_list:
+            print(file + '    # QA : Iterating over each individual feedback file')
+
 # Launching the "txt_2_dictionary_jungo_structure" function into which the "feedback_txt_files_folder_path" path is passed
 convert_txt_feedbacks_2_dictionary_jungo_structure = txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path)
 
