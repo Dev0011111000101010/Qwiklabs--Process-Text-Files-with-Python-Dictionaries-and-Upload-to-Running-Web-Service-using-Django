@@ -16,9 +16,24 @@ feedback_txt_files_folder_path = '/Users/il/PycharmProjects/Qwiklabs--Process-Te
 # in the 'feedback_txt_files_folder_path' directory
 print('----------------------')
 print('----------------------')
-print('#QA: Result: If everything is correct, it should return a list of TXT feedback files.')
+print('# QA: Result: If everything is correct, it should return a list of TXT feedback files.')
 print(os.listdir(feedback_txt_files_folder_path))
 print('----------------------')
 
+def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path)
+    """1. Reading the contents of TXT files in a folder 'feedback_txt_files_folder_path'
+       2. Convert content to dictionary using the correct names to upload to the site correctly"""
+
+    # Get the list of all files and directories
+    # in the 'feedback_txt_files_folder_path' directory
+    print('----------------------')
+    print('----------------------')
+    print('# QA: Result: If everything is correct, it should return a list of TXT feedback files.')
+    print('# Difference from above: This test is already running from the "txt_2_dictionary_jungo_structure" function')
+    print(os.listdir(feedback_txt_files_folder_path))
+    print('----------------------')
+
+# Launching the "txt_2_dictionary_jungo_structure" function into which the "feedback_txt_files_folder_path" path is passed
+convert_txt_feedbacks_2_dictionary_jungo_structure = txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path)
 
 
