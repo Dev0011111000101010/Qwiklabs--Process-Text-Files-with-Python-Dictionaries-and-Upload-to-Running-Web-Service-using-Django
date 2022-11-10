@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+from os import system
 import requests
 
 
@@ -33,9 +34,23 @@ def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path):
     print(os.listdir(feedback_txt_files_folder_path))
     print('----------------------')
 
+    # Creating a variable for a list of TXT files
     txt_files_list = os.listdir(feedback_txt_files_folder_path)
+    # QA: Iterating over each individual feedback file
     for file in txt_files_list:
-            print(file + '    # QA : Iterating over each individual feedback file')
+        print(file + '    # QA : Iterating over each individual feedback file')
+
+    print('----------------------')
+    print('----------------------')
+    print('# QA : Iterating over each individual feedback file content')
+
+    for file in txt_files_list:
+        absolute_path_2_feedback = feedback_txt_files_folder_path + '/'
+        with open(absolute_path_2_feedback + file) as f:
+            # Hint on Loop Reading a File Line by Line
+            # https://pythonru.com/osnovy/chtenie-iz-fajla-postrochno-v-python
+            list_content_of_feedback_files = f.readlines()
+            print(list_content_of_feedback_files)
 
 # Launching the "txt_2_dictionary_jungo_structure" function into which the "feedback_txt_files_folder_path" path is passed
 convert_txt_feedbacks_2_dictionary_jungo_structure = txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path)
