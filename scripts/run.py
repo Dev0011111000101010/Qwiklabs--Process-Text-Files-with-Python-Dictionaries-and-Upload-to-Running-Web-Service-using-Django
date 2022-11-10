@@ -51,6 +51,12 @@ def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path):
             # https://pythonru.com/osnovy/chtenie-iz-fajla-postrochno-v-python
             list_content_of_feedback_files = f.readlines()
             print(list_content_of_feedback_files)
+            # Hint: list to dictionary
+            # https://careerkarma.com/blog/python-convert-list-to-dictionary/
+            list_dictionary_titles = ['title', 'name', 'date', 'feedback']
+            feedback_dictionary = dict(zip(list_dictionary_titles, list_content_of_feedback_files))
+            print(feedback_dictionary)
+
 
 # Launching the "txt_2_dictionary_jungo_structure" function into which the "feedback_txt_files_folder_path" path is passed
 convert_txt_feedbacks_2_dictionary_jungo_structure = txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path)
