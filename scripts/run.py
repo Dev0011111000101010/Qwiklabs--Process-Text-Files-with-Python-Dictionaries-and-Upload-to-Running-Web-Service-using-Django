@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import os
-from os import system
 import requests
 
 """When "#" is used it means "comment"
@@ -10,13 +9,16 @@ If "##" is used, then this is a comment that is to ACTION so that the code works
 ## This folder stores TXT files feedback for the site
 ## The correct code to use on the combat server to complete the task
 ## The lines below need to be uncommented and applied when running the qwiklabs task
+"""Online"""
 # feedback_txt_files_folder_path = '/data/feedback'
 ## The line below was created for local testing without creating a load on the qwiklabs Google server
 ## The line below should be commented out when running the job online in qwiklabs, while the line above is uncommented
+"""Local"""
 feedback_txt_files_folder_path = '/Users/il/PycharmProjects/Qwiklabs--Process-Text-Files-with-Python-Dictionaries-and-Upload-to-Running-Web-Service-using-Djang/test_feedback'
 
 # URL of hte server
 ## Replace <corpweb-external-IP> with corpweb's external IP address.
+"""Change me :) """
 combat_server_url = 'http://<corpweb-external-IP>/feedback'
 
 # Get the list of all files and directories
@@ -64,11 +66,6 @@ def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path):
             feedback_dictionary = dict(zip(list_dictionary_titles, list_content_of_feedback_files))
             print(feedback_dictionary)
             post_each_1_feedback_in_json_format_2_server = requests.post(combat_server_url, json=feedback_dictionary)
-
-
-
-
-
 
 # Launching the "txt_2_dictionary_jungo_structure" function into which the "feedback_txt_files_folder_path" path is passed
 convert_txt_feedbacks_2_dictionary_jungo_structure = txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path)
