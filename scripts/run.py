@@ -2,6 +2,7 @@
 
 import os
 import requests
+import json
 
 """When "#" is used it means "comment"
 If "##" is used, then this is a comment that is to ACTION so that the code works on a local OR online server"""
@@ -10,16 +11,16 @@ If "##" is used, then this is a comment that is to ACTION so that the code works
 ## The correct code to use on the combat server to complete the task
 ## The lines below need to be uncommented and applied when running the qwiklabs task
 """Online"""
-# feedback_txt_files_folder_path = '/data/feedback'
+feedback_txt_files_folder_path = '/data/feedback'
 ## The line below was created for local testing without creating a load on the qwiklabs Google server
 ## The line below should be commented out when running the job online in qwiklabs, while the line above is uncommented
 """Local"""
-feedback_txt_files_folder_path = '/Users/il/PycharmProjects/Qwiklabs--Process-Text-Files-with-Python-Dictionaries-and-Upload-to-Running-Web-Service-using-Djang/test_feedback'
+# feedback_txt_files_folder_path = '/Users/il/PycharmProjects/Qwiklabs--Process-Text-Files-with-Python-Dictionaries-and-Upload-to-Running-Web-Service-using-Djang/test_feedback'
 
-# URL of hte server
-## Replace <corpweb-external-IP> with corpweb's external IP address.
+# URL of the server
+## Replace <corpweb-external-IP> (35.222.215.76) with corpweb's external IP address.
 """Change me :) """
-combat_server_url = 'http://<corpweb-external-IP>/feedback'
+combat_server_url = 'http://35.222.215.76/feedback/'
 
 # Get the list of all files and directories
 # in the 'feedback_txt_files_folder_path' directory
@@ -62,12 +63,37 @@ def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path):
             print(list_content_of_feedback_files)
             # Hint: list to dictionary
             # https://careerkarma.com/blog/python-convert-list-to-dictionary/
-            list_dictionary_titles = ['title', 'name', 'date', 'feedback']
+            list_dictionary_titles = ["title", "name", "date", "feedback"]
             feedback_dictionary = dict(zip(list_dictionary_titles, list_content_of_feedback_files))
             print(feedback_dictionary)
-            post_each_1_feedback_in_json_format_2_server = requests.post(combat_server_url, json=feedback_dictionary)
+            # post_each_1_feedback_in_json_format_2_server = requests.post(combat_server_url, json=feedback_dictionary)
+            print('----------------------')
+            print('----------------------')
+            print(' # QA: print(json.dumps(feedback_dictionary))')
+            print(json.dumps(feedback_dictionary))
+            print('----------------------')
+            dictionary_double_quotes_formate_transform = json.dumps(feedback_dictionary)
+            post_each_1_feedback_in_json_format_2_server_double_quotes = requests.post(combat_server_url, json=dictionary_double_quotes_formate_transform)
+            print('----------------------')
+            print(' # QA: print(post_each_1_feedback_in_json_format_2_server_double_quotes)')
+            print(post_each_1_feedback_in_json_format_2_server_double_quotes)
+            print('----------------------')
+            print('')
+
+    print('----------------------')
+    print('----------------------')
+    print(' # QA: response.status_code')
+    print(post_each_1_feedback_in_json_format_2_server_double_quotes.status_code)
+    print(' # QA: response.ok')
+    print(post_each_1_feedback_in_json_format_2_server_double_quotes.ok)
+    print('----------------------')
+    print(' # QA: response.request.url')
+    print(post_each_1_feedback_in_json_format_2_server_double_quotes.request.url)
+    print('----------------------')
+    print(' # QA: response.request.body')
+    print(post_each_1_feedback_in_json_format_2_server_double_quotes.request.body)
+    print('----------------------')
+    print('')
 
 # Launching the "txt_2_dictionary_jungo_structure" function into which the "feedback_txt_files_folder_path" path is passed
 convert_txt_feedbacks_2_dictionary_jungo_structure = txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path)
-
-
