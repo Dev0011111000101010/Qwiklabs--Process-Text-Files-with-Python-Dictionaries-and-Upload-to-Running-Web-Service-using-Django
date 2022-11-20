@@ -20,7 +20,7 @@ If "##" is used, then this is a comment that is to ACTION so that the code works
 ## The correct code to use on the combat server to complete the task
 ## The lines below need to be uncommented and applied when running the qwiklabs task
 """Online"""
-feedback_txt_files_folder_path = '/data/feedback'
+feedback_txt_files_folder_path = '/data/feedback/'
 ## The line below was created for local testing without creating a load on the qwiklabs Google server
 ## The line below should be commented out when running the job online in qwiklabs, while the line above is uncommented
 """Local"""
@@ -66,7 +66,7 @@ def txt_2_dictionary_jungo_structure(feedback_txt_files_folder_path):
     print('# QA : The second line shows the converted dictionary')
 
     for file in txt_files_list:
-        absolute_path_2_feedback = feedback_txt_files_folder_path + '/'
+        absolute_path_2_feedback = feedback_txt_files_folder_path
         with open(absolute_path_2_feedback + file) as f:
             # Hint on Loop Reading a File Line by Line
             # https://pythonru.com/osnovy/chtenie-iz-fajla-postrochno-v-python
